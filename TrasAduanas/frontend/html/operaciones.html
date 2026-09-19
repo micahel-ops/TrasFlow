@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Transflow | Operaciones</title>
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/layout.css">
+    <link rel="stylesheet" href="../css/componentes.css">
+    <link rel="stylesheet" href="../css/modulos/operaciones.css">
+</head>
+<body>
+
+    <div class="app">
+
+        <div id="layout-sidebar"></div>
+
+
+        <main class="main">
+
+            <!-- HEADER -->
+            <div id="layout-topbar"></div>
+
+            <section class="content">
+
+                <!-- BIENVENIDA -->
+                <div class="welcome">
+
+                    <div>
+
+                        <span class="welcome-label">
+                            GESTIÓN DE OPERACIONES
+                        </span>
+
+                        <h1>
+                            Control y seguimiento de la ejecución de servicios
+                        </h1>
+
+                        <p>
+                            Seguimiento de cada orden de servicio desde que
+                            queda pendiente hasta que se finaliza o presenta
+                            una incidencia.
+                        </p>
+
+                    </div>
+
+                    <div class="welcome-decoration">
+                        TF
+                    </div>
+
+                </div>
+
+
+                <div class="summary summary-operaciones">
+
+                    <div class="summary-card">
+
+                        <div class="summary-icon">
+                            01
+                        </div>
+
+                        <div>
+                            <span>Órdenes de servicio (OT)</span>
+                            <strong id="kpi-total">56</strong>
+                        </div>
+
+                    </div>
+
+
+                    <div class="summary-card">
+
+                        <div class="summary-icon">
+                            02
+                        </div>
+
+                        <div>
+                            <span>En ejecución</span>
+                            <strong id="kpi-ejecucion">8</strong>
+                        </div>
+
+                    </div>
+
+
+                    <div class="summary-card">
+
+                        <div class="summary-icon">
+                            03
+                        </div>
+
+                        <div>
+                            <span>Finalizadas</span>
+                            <strong id="kpi-finalizada">42</strong>
+                        </div>
+
+                    </div>
+
+
+                    <div class="summary-card">
+
+                        <div class="summary-icon">
+                            04
+                        </div>
+
+                        <div>
+                            <span>Con incidencia</span>
+                            <strong id="kpi-incidencia">4</strong>
+                        </div>
+
+                    </div>
+
+
+                    <div class="summary-card">
+
+                        <div class="summary-icon">
+                            05
+                        </div>
+
+                        <div>
+                            <span>Tiempo promedio de servicio</span>
+                            <strong id="kpi-tiempo">3.5 días</strong>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="section-header">
+
+                    <div>
+                        <span class="section-label">
+                            EJECUCIÓN DE SERVICIOS
+                        </span>
+
+                        <h2>
+                            Órdenes de servicio por estado
+                        </h2>
+                    </div>
+
+                    <div class="pipeline-actions">
+
+                        <span class="process-count">
+                            <span id="ot-count">56</span> órdenes
+                        </span>
+
+                        <button class="btn-nueva" id="btnNuevaOrden" type="button">
+                            + Nueva orden de servicio
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <div class="pipeline-scroll">
+
+                    <div class="pipeline">
+
+                        <!-- ESTADO 1 -->
+                        <div class="pipeline-stage" data-stage="pendiente">
+
+                            <div class="pipeline-stage-head">
+                                <h4>Pendiente</h4>
+                                <span class="pipeline-stage-count" id="count-pendiente">2</span>
+                            </div>
+
+                            <div class="pipeline-card">
+                                <strong>OT-000156</strong>
+                                <span>Minera Andina S.A. · Mantenimiento preventivo</span>
+
+                                <div class="pipeline-card-foot">
+                                    <span class="pipeline-amount">12/04/2025</span>
+                                    <div class="pipeline-owner">TF</div>
+                                </div>
+                            </div>
+
+                        </div>
+
+
+                        <!-- ESTADO 2 -->
+                        <div class="pipeline-stage" data-stage="programada">
+
+                            <div class="pipeline-stage-head">
+                                <h4>Programada</h4>
+                                <span class="pipeline-stage-count" id="count-programada">1</span>
+                            </div>
+
+                            <div class="pipeline-card">
+                                <strong>OT-000154</strong>
+                                <span>AgroAndes · Mantenimiento preventivo</span>
+
+                                <div class="pipeline-card-foot">
+                                    <span class="pipeline-amount">15/04/2025</span>
+                                    <div class="pipeline-owner">TF</div>
+                                </div>
+                            </div>
+
+                        </div>
+
+
+                        <!-- ESTADO 3 -->
+                        <div class="pipeline-stage" data-stage="ejecucion">
+
+                            <div class="pipeline-stage-head">
+                                <h4>En ejecución</h4>
+                                <span class="pipeline-stage-count" id="count-ejecucion">8</span>
+                            </div>
+
+                            <div class="pipeline-card">
+                                <strong>OT-000147</strong>
+                                <span>Textil del Valle · Mantenimiento industrial</span>
+
+                                <div class="pipeline-card-foot">
+                                    <span class="pipeline-amount">70%</span>
+                                    <div class="pipeline-owner">TF</div>
+                                </div>
+                            </div>
+
+                            <div class="pipeline-card">
+                                <strong>OT-000148</strong>
+                                <span>Aceros del Sur · Instalación de equipos</span>
+
+                                <div class="pipeline-card-foot">
+                                    <span class="pipeline-amount">60%</span>
+                                    <div class="pipeline-owner">TF</div>
+                                </div>
+                            </div>
+
+                        </div>
+
+
+                        <!-- ESTADO 4 -->
+                        <div class="pipeline-stage is-perdida" data-stage="incidencia">
+
+                            <div class="pipeline-stage-head">
+                                <h4>Con incidencia</h4>
+                                <span class="pipeline-stage-count" id="count-incidencia">4</span>
+                            </div>
+
+                            <div class="pipeline-card">
+                                <strong>OT-000150</strong>
+                                <span>Logística Global · Instalación de equipos</span>
+
+                                <div class="pipeline-card-foot">
+                                    <span class="pipeline-amount">30%</span>
+                                    <div class="pipeline-owner">TF</div>
+                                </div>
+                            </div>
+
+                        </div>
+
+
+                        <!-- ESTADO 5 -->
+                        <div class="pipeline-stage is-ganada" data-stage="finalizada">
+
+                            <div class="pipeline-stage-head">
+                                <h4>Finalizada</h4>
+                                <span class="pipeline-stage-count" id="count-finalizada">42</span>
+                            </div>
+
+                            <div class="pipeline-card">
+                                <strong>OT-000139</strong>
+                                <span>Pesquera del Pacífico · Mantenimiento industrial</span>
+
+                                <div class="pipeline-card-foot">
+                                    <span class="pipeline-amount">100%</span>
+                                    <div class="pipeline-owner">TF</div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="section-header">
+
+                    <div>
+                        <span class="section-label">
+                            SEGUIMIENTO
+                        </span>
+
+                        <h2>
+                            Últimas órdenes de servicio
+                        </h2>
+                    </div>
+
+                </div>
+
+                <div class="opps-table-wrapper">
+
+                    <table class="opps-table">
+
+                        <thead>
+                            <tr>
+                                <th>N° OT</th>
+                                <th>Cliente</th>
+                                <th>Servicio</th>
+                                <th>Fecha programada</th>
+                                <th>Estado</th>
+                                <th>Progreso</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="ordenes-tbody">
+
+                            <tr>
+                                <td>OT-000147</td>
+                                <td>Textil del Valle</td>
+                                <td>Mantenimiento industrial</td>
+                                <td>09/04/2025 09:00</td>
+                                <td><span class="stage-badge is-negociacion">En ejecución</span></td>
+                                <td>
+                                    <div class="progress-wrap">
+                                        <div class="progress-track">
+                                            <div class="progress-fill" style="width: 70%;"></div>
+                                        </div>
+                                        <span class="progress-label">70%</span>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>OT-000148</td>
+                                <td>Aceros del Sur</td>
+                                <td>Instalación de equipos</td>
+                                <td>10/04/2025 08:30</td>
+                                <td><span class="stage-badge is-negociacion">En ejecución</span></td>
+                                <td>
+                                    <div class="progress-wrap">
+                                        <div class="progress-track">
+                                            <div class="progress-fill" style="width: 60%;"></div>
+                                        </div>
+                                        <span class="progress-label">60%</span>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>OT-000150</td>
+                                <td>Logística Global</td>
+                                <td>Instalación de equipos</td>
+                                <td>11/04/2025 09:30</td>
+                                <td><span class="stage-badge is-perdida">Con incidencia</span></td>
+                                <td>
+                                    <div class="progress-wrap">
+                                        <div class="progress-track">
+                                            <div class="progress-fill is-perdida" style="width: 30%;"></div>
+                                        </div>
+                                        <span class="progress-label">30%</span>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>OT-000154</td>
+                                <td>AgroAndes</td>
+                                <td>Mantenimiento preventivo</td>
+                                <td>15/04/2025 08:00</td>
+                                <td><span class="stage-badge is-programada">Programada</span></td>
+                                <td>
+                                    <div class="progress-wrap">
+                                        <div class="progress-track">
+                                            <div class="progress-fill" style="width: 0%;"></div>
+                                        </div>
+                                        <span class="progress-label">0%</span>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>OT-000156</td>
+                                <td>Minera Andina S.A.</td>
+                                <td>Mantenimiento preventivo</td>
+                                <td>12/04/2025 10:00</td>
+                                <td><span class="stage-badge">Pendiente</span></td>
+                                <td>
+                                    <div class="progress-wrap">
+                                        <div class="progress-track">
+                                            <div class="progress-fill" style="width: 0%;"></div>
+                                        </div>
+                                        <span class="progress-label">0%</span>
+                                    </div>
+                                </td>
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+                <div class="process-note">
+
+                    <div class="process-note-icon">
+                        ⑂
+                    </div>
+
+                    <p>
+                        Toda orden de servicio nace <strong>pendiente</strong>, pasa a
+                        <strong>programada</strong> con fecha asignada y a
+                        <strong>en ejecución</strong> mientras se presta el servicio.
+                        Al cierre se decide su desenlace: <strong>finalizada</strong>
+                        si se completó sin problemas, o <strong>con incidencia</strong>
+                        si hubo una falla, retraso o inconformidad que requiere
+                        seguimiento.
+                    </p>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+    <div class="modal-overlay" id="modalOverlay">
+
+        <div class="modal">
+
+            <div class="modal-head">
+                <h3>Nueva orden de servicio</h3>
+                <button type="button" class="modal-close" id="btnCerrarModal">✕</button>
+            </div>
+
+            <form id="formOrden">
+
+                <div class="form-field">
+                    <label for="campoCliente">Cliente</label>
+                    <input type="text" id="campoCliente" name="cliente" placeholder="Ej. Textil del Valle" required>
+                </div>
+
+                <div class="form-field">
+                    <label for="campoServicio">Servicio</label>
+                    <input type="text" id="campoServicio" name="servicio" placeholder="Ej. Mantenimiento industrial" required>
+                </div>
+
+                <div class="form-row">
+
+                    <div class="form-field">
+                        <label for="campoFecha">Fecha programada</label>
+                        <input type="datetime-local" id="campoFecha" name="fecha" required>
+                    </div>
+
+                    <div class="form-field">
+                        <label for="campoProgreso">Progreso (%)</label>
+                        <input type="number" id="campoProgreso" name="progreso" min="0" max="100" step="5" value="0" required>
+                    </div>
+
+                </div>
+
+                <div class="form-field">
+                    <label for="campoEstado">Estado</label>
+                    <select id="campoEstado" name="estado" required>
+                        <option value="pendiente">Pendiente</option>
+                        <option value="programada">Programada</option>
+                        <option value="ejecucion">En ejecución</option>
+                        <option value="incidencia">Con incidencia</option>
+                        <option value="finalizada">Finalizada</option>
+                    </select>
+                </div>
+
+                <div class="modal-actions">
+                    <button type="button" class="btn-secundario" id="btnCancelarModal">Cancelar</button>
+                    <button type="submit" class="btn-nueva">Guardar orden</button>
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <script src="../js/layout.js"></script>
+    <script src="../js/utils.js"></script>
+    <script src="../js/modal.js"></script>
+    <script src="../js/modulos/operaciones.js"></script>
+
+</body>
+</html>

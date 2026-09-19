@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Transflow | Ventas</title>
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/layout.css">
+    <link rel="stylesheet" href="../css/componentes.css">
+    <link rel="stylesheet" href="../css/modulos/ventas.css">
+</head>
+<body>
+
+    <div class="app">
+
+        <div id="layout-sidebar"></div>
+
+
+        <main class="main">
+
+            <!-- HEADER -->
+            <div id="layout-topbar"></div>
+
+            <section class="content">
+
+                <!-- BIENVENIDA -->
+                <div class="welcome">
+
+                    <div>
+
+                        <span class="welcome-label">
+                            PROCESO DE VENTAS
+                        </span>
+
+                        <h1>
+                            Del lead calificado a la venta cerrada
+                        </h1>
+
+                        <p>
+                            Seguimiento de cada oportunidad desde que llega calificada
+                            de Marketing hasta el cierre y el comprobante emitido.
+                        </p>
+
+                    </div>
+
+                    <div class="welcome-decoration">
+                        TF
+                    </div>
+
+                </div>
+
+                <div class="summary">
+
+                    <div class="summary-card">
+
+                        <div class="summary-icon">
+                            01
+                        </div>
+
+                        <div>
+                            <span>Leads calificados recibidos</span>
+                            <strong id="kpi-lead">16</strong>
+                        </div>
+
+                    </div>
+
+
+                    <div class="summary-card">
+
+                        <div class="summary-icon">
+                            02
+                        </div>
+
+                        <div>
+                            <span>Propuestas enviadas</span>
+                            <strong id="kpi-propuesta">9</strong>
+                        </div>
+
+                    </div>
+
+
+                    <div class="summary-card">
+
+                        <div class="summary-icon">
+                            03
+                        </div>
+
+                        <div>
+                            <span>Órdenes de venta generadas</span>
+                            <strong id="kpi-pago">5</strong>
+                        </div>
+
+                    </div>
+
+
+                    <div class="summary-card">
+
+                        <div class="summary-icon">
+                            04
+                        </div>
+
+                        <div>
+                            <span>Ventas cerradas - ganadas</span>
+                            <strong id="kpi-ganada">3</strong>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="section-header">
+
+                    <div>
+                        <span class="section-label">
+                            EJECUTIVO DE VENTAS · CRM · CLIENTE
+                        </span>
+
+                        <h2>
+                            Oportunidades por etapa
+                        </h2>
+                    </div>
+
+                    <div class="pipeline-actions">
+
+                        <span class="process-count">
+                            <span id="opps-count">16</span> oportunidades
+                        </span>
+
+                        <button class="btn-nueva" id="btnNuevaOportunidad" type="button">
+                            + Nueva oportunidad
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <div class="pipeline-scroll">
+
+                    <div class="pipeline">
+
+                        <!-- ETAPA 1 -->
+                        <div class="pipeline-stage" data-stage="lead">
+
+                            <div class="pipeline-stage-head">
+                                <h4>Lead calificado</h4>
+                                <span class="pipeline-stage-count" id="count-lead">4</span>
+                            </div>
+
+                            <div class="pipeline-card">
+                                <strong>Importadora del Sur</strong>
+                                <span>Recibido de Marketing</span>
+
+                                <div class="pipeline-card-foot">
+                                    <span class="pipeline-amount">US$ 12,400</span>
+                                    <div class="pipeline-owner">MK</div>
+                                </div>
+                            </div>
+
+                            <div class="pipeline-card">
+                                <strong>Textiles Andinos</strong>
+                                <span>Recibido de Marketing</span>
+
+                                <div class="pipeline-card-foot">
+                                    <span class="pipeline-amount">US$ 8,900</span>
+                                    <div class="pipeline-owner">LP</div>
+                                </div>
+                            </div>
+
+                        </div>
+
+
+                        <!-- ETAPA 2 -->
+                        <div class="pipeline-stage" data-stage="diagnostico">
+
+                            <div class="pipeline-stage-head">
+                                <h4>Diagnóstico agendado</h4>
+                                <span class="pipeline-stage-count" id="count-diagnostico">3</span>
+                            </div>
+
+                            <div class="pipeline-card">
+                                <strong>Comercial Rocío E.I.R.L.</strong>
+                                <span>Necesidades por registrar</span>
+
+                                <div class="pipeline-card-foot">
+                                    <span class="pipeline-amount">US$ 21,000</span>
+                                    <div class="pipeline-owner">JM</div>
+                                </div>
+                            </div>
+
+                        </div>
+
+
+                        <!-- ETAPA 3 -->
+                        <div class="pipeline-stage" data-stage="propuesta">
+
+                            <div class="pipeline-stage-head">
+                                <h4>Propuesta enviada</h4>
+                                <span class="pipeline-stage-count" id="count-propuesta">4</span>
+                            </div>
+
+                            <div class="pipeline-card">
+                                <strong>Global SAC</strong>
+                                <span>Cotización PDF enviada</span>
+
+                                <div class="pipeline-card-foot">
+                                    <span class="pipeline-amount">US$ 15,600</span>
+                                    <div class="pipeline-owner">CG</div>
+                                </div>
+                            </div>
+
+                            <div class="pipeline-card">
+                                <strong>Andes Trade S.A.</strong>
+                                <span>Cotización PDF enviada</span>
+
+                                <div class="pipeline-card-foot">
+                                    <span class="pipeline-amount">US$ 9,300</span>
+                                    <div class="pipeline-owner">LP</div>
+                                </div>
+                            </div>
+
+                        </div>
+
+
+                        <!-- ETAPA 4 -->
+                        <div class="pipeline-stage" data-stage="revision">
+
+                            <div class="pipeline-stage-head">
+                                <h4>En revisión del cliente</h4>
+                                <span class="pipeline-stage-count" id="count-revision">2</span>
+                            </div>
+
+                            <div class="pipeline-card">
+                                <strong>Logística del Sur</strong>
+                                <span>Esperando decisión del cliente</span>
+
+                                <div class="pipeline-card-foot">
+                                    <span class="pipeline-amount">US$ 18,200</span>
+                                    <div class="pipeline-owner">JM</div>
+                                </div>
+                            </div>
+
+                        </div>
+
+
+                        <!-- ETAPA 5 -->
+                        <div class="pipeline-stage" data-stage="pago">
+
+                            <div class="pipeline-stage-head">
+                                <h4>Orden y pago pendiente</h4>
+                                <span class="pipeline-stage-count" id="count-pago">1</span>
+                            </div>
+
+                            <div class="pipeline-card">
+                                <strong>Exportadora Norte</strong>
+                                <span>Link de pago seguro enviado</span>
+
+                                <div class="pipeline-card-foot">
+                                    <span class="pipeline-amount">US$ 27,500</span>
+                                    <div class="pipeline-owner">MP</div>
+                                </div>
+                            </div>
+
+                        </div>
+
+
+                        <!-- ETAPA 6 -->
+                        <div class="pipeline-stage is-ganada" data-stage="ganada">
+
+                            <div class="pipeline-stage-head">
+                                <h4>Venta cerrada - ganada</h4>
+                                <span class="pipeline-stage-count" id="count-ganada">3</span>
+                            </div>
+
+                            <div class="pipeline-card">
+                                <strong>Importaciones del Sur</strong>
+                                <span>Pago aprobado · comprobante emitido</span>
+
+                                <div class="pipeline-card-foot">
+                                    <span class="pipeline-amount">US$ 42,000</span>
+                                    <div class="pipeline-owner">MP</div>
+                                </div>
+                            </div>
+
+                        </div>
+
+
+                        <!-- ETAPA 7 -->
+                        <div class="pipeline-stage is-perdida" data-stage="perdida">
+
+                            <div class="pipeline-stage-head">
+                                <h4>Perdida / cancelada</h4>
+                                <span class="pipeline-stage-count" id="count-perdida">2</span>
+                            </div>
+
+                            <div class="pipeline-card">
+                                <strong>Textiles del Pacífico</strong>
+                                <span>Cliente rechazó la propuesta</span>
+
+                                <div class="pipeline-card-foot">
+                                    <span class="pipeline-amount">US$ 22,300</span>
+                                    <div class="pipeline-owner">RP</div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="section-header">
+
+                    <div>
+                        <span class="section-label">
+                            SEGUIMIENTO
+                        </span>
+
+                        <h2>
+                            Oportunidades y clientes
+                        </h2>
+                    </div>
+
+                </div>
+
+                <div class="opps-table-wrapper">
+
+                    <table class="opps-table">
+
+                        <thead>
+                            <tr>
+                                <th>Cliente</th>
+                                <th>Etapa</th>
+                                <th>Monto estimado</th>
+                                <th>Propietario</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="opps-tbody">
+
+                            <tr>
+                                <td class="opps-cliente">
+                                    <strong>Importaciones del Sur</strong>
+                                    <span>Servicio de despacho</span>
+                                </td>
+                                <td><span class="stage-badge is-ganada">Venta cerrada - ganada</span></td>
+                                <td>US$ 42,000</td>
+                                <td>
+                                    <div class="opps-owner">
+                                        <div class="opps-owner-avatar">MP</div>
+                                        María Pérez
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td class="opps-cliente">
+                                    <strong>Logística del Sur</strong>
+                                    <span>Transporte internacional</span>
+                                </td>
+                                <td><span class="stage-badge is-negociacion">En revisión del cliente</span></td>
+                                <td>US$ 18,200</td>
+                                <td>
+                                    <div class="opps-owner">
+                                        <div class="opps-owner-avatar">JM</div>
+                                        José Martínez
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td class="opps-cliente">
+                                    <strong>Global SAC</strong>
+                                    <span>Exportación de alimentos</span>
+                                </td>
+                                <td><span class="stage-badge">Propuesta enviada</span></td>
+                                <td>US$ 15,600</td>
+                                <td>
+                                    <div class="opps-owner">
+                                        <div class="opps-owner-avatar">CG</div>
+                                        Carlos Gómez
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td class="opps-cliente">
+                                    <strong>Exportadora Norte</strong>
+                                    <span>Gestión aduanera</span>
+                                </td>
+                                <td><span class="stage-badge is-negociacion">Orden y pago pendiente</span></td>
+                                <td>US$ 27,500</td>
+                                <td>
+                                    <div class="opps-owner">
+                                        <div class="opps-owner-avatar">MP</div>
+                                        María Pérez
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td class="opps-cliente">
+                                    <strong>Textiles del Pacífico</strong>
+                                    <span>Gestión aduanera</span>
+                                </td>
+                                <td><span class="stage-badge is-perdida">Perdida</span></td>
+                                <td>US$ 22,300</td>
+                                <td>
+                                    <div class="opps-owner">
+                                        <div class="opps-owner-avatar">RP</div>
+                                        Rocío Vargas
+                                    </div>
+                                </td>
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+                <div class="process-note">
+
+                    <div class="process-note-icon">
+                        ⑂
+                    </div>
+
+                    <p>
+                        Dos puntos de decisión mueven una oportunidad entre etapas:
+                        la <strong>revisión del cliente</strong> (acepta la propuesta
+                        y avanza a orden de venta, o rechaza y la oportunidad se
+                        marca como perdida) y la <strong>aprobación del pago</strong>
+                        en la pasarela (aprobado cierra la venta como ganada;
+                        no aprobado la deja como cancelada / pago fallido).
+                    </p>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+    <div class="modal-overlay" id="modalOverlay">
+
+        <div class="modal">
+
+            <div class="modal-head">
+                <h3>Nueva oportunidad</h3>
+                <button type="button" class="modal-close" id="btnCerrarModal">✕</button>
+            </div>
+
+            <form id="formOportunidad">
+
+                <div class="form-field">
+                    <label for="campoCliente">Cliente</label>
+                    <input type="text" id="campoCliente" name="cliente" placeholder="Ej. Importadora del Sur" required>
+                </div>
+
+                <div class="form-field">
+                    <label for="campoDetalle">Servicio / detalle</label>
+                    <input type="text" id="campoDetalle" name="detalle" placeholder="Ej. Servicio de despacho" required>
+                </div>
+
+                <div class="form-row">
+
+                    <div class="form-field">
+                        <label for="campoEtapa">Etapa</label>
+                        <select id="campoEtapa" name="etapa" required>
+                            <option value="lead">Lead calificado</option>
+                            <option value="diagnostico">Diagnóstico agendado</option>
+                            <option value="propuesta">Propuesta enviada</option>
+                            <option value="revision">En revisión del cliente</option>
+                            <option value="pago">Orden y pago pendiente</option>
+                            <option value="ganada">Venta cerrada - ganada</option>
+                            <option value="perdida">Perdida / cancelada</option>
+                        </select>
+                    </div>
+
+                    <div class="form-field">
+                        <label for="campoMonto">Monto estimado (US$)</label>
+                        <input type="number" id="campoMonto" name="monto" min="0" step="1" placeholder="0" required>
+                    </div>
+
+                </div>
+
+                <div class="form-field">
+                    <label for="campoPropietario">Propietario</label>
+                    <input type="text" id="campoPropietario" name="propietario" placeholder="Ej. María Pérez" required>
+                </div>
+
+                <div class="modal-actions">
+                    <button type="button" class="btn-secundario" id="btnCancelarModal">Cancelar</button>
+                    <button type="submit" class="btn-nueva">Guardar oportunidad</button>
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <script src="../js/layout.js"></script>
+    <script src="../js/utils.js"></script>
+    <script src="../js/modal.js"></script>
+    <script src="../js/modulos/ventas.js"></script>
+
+</body>
+</html>

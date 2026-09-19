@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Transflow | Auditoría y control legal</title>
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/layout.css">
+    <link rel="stylesheet" href="../css/componentes.css">
+    <link rel="stylesheet" href="../css/modulos/auditoria.css">
+</head>
+<body>
+
+    <div class="app">
+
+
+        <div id="layout-sidebar"></div>
+
+
+        <main class="main">
+
+            <!-- HEADER -->
+            <div id="layout-topbar"></div>
+
+
+            <section class="content">
+
+                <!-- BIENVENIDA -->
+                <div class="welcome">
+
+                    <div>
+
+                        <span class="welcome-label">
+                            CUMPLIMIENTO NORMATIVO
+                        </span>
+
+                        <h1>
+                            Revisión, validación y control de cumplimiento
+                        </h1>
+
+                        <p>
+                            Seguimiento de cada expediente desde su revisión
+                            hasta que queda conforme, con observaciones o
+                            no conforme.
+                        </p>
+
+                    </div>
+
+                    <div class="welcome-decoration">
+                        TF
+                    </div>
+
+                </div>
+
+
+                <div class="summary summary-auditoria">
+
+                    <div class="summary-card">
+
+                        <div class="summary-icon">
+                            01
+                        </div>
+
+                        <div>
+                            <span>Total de revisiones</span>
+                            <strong id="kpi-total">48</strong>
+                        </div>
+
+                    </div>
+
+
+                    <div class="summary-card">
+
+                        <div class="summary-icon">
+                            02
+                        </div>
+
+                        <div>
+                            <span>Conformes</span>
+                            <strong id="kpi-conforme">42</strong>
+                        </div>
+
+                    </div>
+
+
+                    <div class="summary-card">
+
+                        <div class="summary-icon">
+                            03
+                        </div>
+
+                        <div>
+                            <span>Observaciones</span>
+                            <strong id="kpi-observacion">5</strong>
+                        </div>
+
+                    </div>
+
+
+                    <div class="summary-card">
+
+                        <div class="summary-icon">
+                            04
+                        </div>
+
+                        <div>
+                            <span>No conformes</span>
+                            <strong id="kpi-noconforme">1</strong>
+                        </div>
+
+                    </div>
+
+
+                    <div class="summary-card">
+
+                        <div class="summary-icon">
+                            05
+                        </div>
+
+                        <div>
+                            <span>Tiempo promedio de revisión</span>
+                            <strong id="kpi-tiempo">2.4 días</strong>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="section-header">
+
+                    <div>
+                        <span class="section-label">
+                            EQUIPO LEGAL · OFICIAL DE CUMPLIMIENTO
+                        </span>
+
+                        <h2>
+                            Expedientes por estado
+                        </h2>
+                    </div>
+
+                    <div class="pipeline-actions">
+
+                        <span class="process-count">
+                            <span id="expedientes-count">48</span> expedientes
+                        </span>
+
+                        <button class="btn-nueva" id="btnNuevoExpediente" type="button">
+                            + Nuevo expediente
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <div class="pipeline-scroll">
+
+                    <div class="pipeline">
+
+                        <!-- ESTADO 1 -->
+                        <div class="pipeline-stage is-ganada" data-stage="conforme">
+
+                            <div class="pipeline-stage-head">
+                                <h4>Conforme</h4>
+                                <span class="pipeline-stage-count" id="count-conforme">42</span>
+                            </div>
+
+                            <div class="pipeline-card">
+                                <strong>AUD-2025-0412</strong>
+                                <span>Contrato · Minera Andina S.A.</span>
+
+                                <div class="pipeline-card-foot">
+                                    <span class="pipeline-amount">Equipo Legal</span>
+                                    <div class="pipeline-owner">TF</div>
+                                </div>
+                            </div>
+
+                        </div>
+
+
+                        <!-- ESTADO 2 -->
+                        <div class="pipeline-stage" data-stage="observacion">
+
+                            <div class="pipeline-stage-head">
+                                <h4>Con observaciones</h4>
+                                <span class="pipeline-stage-count" id="count-observacion">5</span>
+                            </div>
+
+                            <div class="pipeline-card">
+                                <strong>AUD-2025-0411</strong>
+                                <span>Auditoría · AgroAndes</span>
+
+                                <div class="pipeline-card-foot">
+                                    <span class="pipeline-amount">Oficial de Cumplimiento</span>
+                                    <div class="pipeline-owner">TF</div>
+                                </div>
+                            </div>
+
+                        </div>
+
+
+                        <!-- ESTADO 3 -->
+                        <div class="pipeline-stage is-perdida" data-stage="noconforme">
+
+                            <div class="pipeline-stage-head">
+                                <h4>No conforme</h4>
+                                <span class="pipeline-stage-count" id="count-noconforme">1</span>
+                            </div>
+
+                            <div class="pipeline-card">
+                                <strong>AUD-2025-0408</strong>
+                                <span>Contrato · Pesquera del Pacífico</span>
+
+                                <div class="pipeline-card-foot">
+                                    <span class="pipeline-amount">Equipo Legal</span>
+                                    <div class="pipeline-owner">TF</div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="section-header">
+
+                    <div>
+                        <span class="section-label">
+                            TRAZABILIDAD
+                        </span>
+
+                        <h2>
+                            Expedientes recientes
+                        </h2>
+                    </div>
+
+                </div>
+
+                <div class="opps-table-wrapper">
+
+                    <table class="opps-table">
+
+                        <thead>
+                            <tr>
+                                <th>N° expediente</th>
+                                <th>Tipo</th>
+                                <th>Cliente / proceso</th>
+                                <th>Estado</th>
+                                <th>Fecha de revisión</th>
+                                <th>Responsable</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="expedientes-tbody">
+
+                            <tr>
+                                <td>AUD-2025-0412</td>
+                                <td>Contrato</td>
+                                <td>Minera Andina S.A.</td>
+                                <td><span class="stage-badge is-ganada">Conforme</span></td>
+                                <td>14/04/2025</td>
+                                <td>Equipo Legal</td>
+                            </tr>
+
+                            <tr>
+                                <td>AUD-2025-0411</td>
+                                <td>Auditoría</td>
+                                <td>AgroAndes</td>
+                                <td><span class="stage-badge is-negociacion">Con observaciones</span></td>
+                                <td>12/04/2025</td>
+                                <td>Oficial de Cumplimiento</td>
+                            </tr>
+
+                            <tr>
+                                <td>AUD-2025-0410</td>
+                                <td>Contrato</td>
+                                <td>Textil del Valle</td>
+                                <td><span class="stage-badge is-ganada">Conforme</span></td>
+                                <td>10/04/2025</td>
+                                <td>Equipo Legal</td>
+                            </tr>
+
+                            <tr>
+                                <td>AUD-2025-0409</td>
+                                <td>Documental</td>
+                                <td>Logística Global</td>
+                                <td><span class="stage-badge is-ganada">Conforme</span></td>
+                                <td>08/04/2025</td>
+                                <td>Oficial de Cumplimiento</td>
+                            </tr>
+
+                            <tr>
+                                <td>AUD-2025-0408</td>
+                                <td>Contrato</td>
+                                <td>Pesquera del Pacífico</td>
+                                <td><span class="stage-badge is-perdida">No conforme</span></td>
+                                <td>06/04/2025</td>
+                                <td>Equipo Legal</td>
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+
+                <div class="process-note">
+
+                    <div class="process-note-icon">
+                        ⑂
+                    </div>
+
+                    <p>
+                        Toda revisión concluye en uno de tres estados:
+                        <strong>conforme</strong>, si cumple la normativa y el
+                        contrato sin observaciones; <strong>con observaciones</strong>,
+                        si requiere ajustes menores antes de aprobarse; o
+                        <strong>no conforme</strong>, si incumple el marco legal
+                        o contractual y debe corregirse.
+                    </p>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+
+    <div class="modal-overlay" id="modalOverlay">
+
+        <div class="modal">
+
+            <div class="modal-head">
+                <h3>Nuevo expediente</h3>
+                <button type="button" class="modal-close" id="btnCerrarModal">✕</button>
+            </div>
+
+            <form id="formExpediente">
+
+                <div class="form-row">
+
+                    <div class="form-field">
+                        <label for="campoTipo">Tipo</label>
+                        <select id="campoTipo" name="tipo" required>
+                            <option value="Contrato">Contrato</option>
+                            <option value="Auditoría">Auditoría</option>
+                            <option value="Documental">Documental</option>
+                            <option value="Normativa">Normativa</option>
+                        </select>
+                    </div>
+
+                    <div class="form-field">
+                        <label for="campoFecha">Fecha de revisión</label>
+                        <input type="date" id="campoFecha" name="fecha" required>
+                    </div>
+
+                </div>
+
+                <div class="form-field">
+                    <label for="campoCliente">Cliente / proceso</label>
+                    <input type="text" id="campoCliente" name="cliente" placeholder="Ej. Minera Andina S.A." required>
+                </div>
+
+                <div class="form-field">
+                    <label for="campoResponsable">Responsable</label>
+                    <input type="text" id="campoResponsable" name="responsable" placeholder="Ej. Equipo Legal" required>
+                </div>
+
+                <div class="form-field">
+                    <label for="campoEstado">Estado</label>
+                    <select id="campoEstado" name="estado" required>
+                        <option value="conforme">Conforme</option>
+                        <option value="observacion">Con observaciones</option>
+                        <option value="noconforme">No conforme</option>
+                    </select>
+                </div>
+
+                <div class="modal-actions">
+                    <button type="button" class="btn-secundario" id="btnCancelarModal">Cancelar</button>
+                    <button type="submit" class="btn-nueva">Guardar expediente</button>
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <script src="../js/layout.js"></script>
+    <script src="../js/utils.js"></script>
+    <script src="../js/modal.js"></script>
+    <script src="../js/modulos/auditoria.js"></script>
+
+</body>
+</html>

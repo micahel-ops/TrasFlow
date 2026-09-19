@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Transflow | Logística</title>
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/layout.css">
+    <link rel="stylesheet" href="../css/componentes.css">
+    <link rel="stylesheet" href="../css/modulos/logistica.css">
+</head>
+<body>
+
+    <div class="app">
+
+        <div id="layout-sidebar"></div>
+
+
+        <main class="main">
+
+            <!-- HEADER -->
+            <div id="layout-topbar"></div>
+
+
+            <section class="content">
+
+                <!-- BIENVENIDA -->
+                <div class="welcome">
+
+                    <div>
+
+                        <span class="welcome-label">
+                            PROCESO DE LOGÍSTICA
+                        </span>
+
+                        <h1>
+                            Del almacén a la entrega confirmada
+                        </h1>
+
+                        <p>
+                            Seguimiento de cada envío desde que el paquete queda
+                            listo en almacén hasta la entrega con comprobante.
+                        </p>
+
+                    </div>
+
+                    <div class="welcome-decoration">
+                        TF
+                    </div>
+
+                </div>
+
+
+                <div class="summary summary-logistica">
+
+                    <div class="summary-card">
+
+                        <div class="summary-icon">
+                            01
+                        </div>
+
+                        <div>
+                            <span>Total de envíos</span>
+                            <strong id="kpi-total">18</strong>
+                        </div>
+
+                    </div>
+
+
+                    <div class="summary-card">
+
+                        <div class="summary-icon">
+                            02
+                        </div>
+
+                        <div>
+                            <span>En tránsito</span>
+                            <strong id="kpi-transito">7</strong>
+                        </div>
+
+                    </div>
+
+
+                    <div class="summary-card">
+
+                        <div class="summary-icon">
+                            03
+                        </div>
+
+                        <div>
+                            <span>Entregados</span>
+                            <strong id="kpi-entregado">8</strong>
+                        </div>
+
+                    </div>
+
+
+                    <div class="summary-card">
+
+                        <div class="summary-icon">
+                            04
+                        </div>
+
+                        <div>
+                            <span>En espera</span>
+                            <strong id="kpi-espera">2</strong>
+                        </div>
+
+                    </div>
+
+
+                    <div class="summary-card">
+
+                        <div class="summary-icon">
+                            05
+                        </div>
+
+                        <div>
+                            <span>Con incidencias</span>
+                            <strong id="kpi-incidencia">1</strong>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="section-header">
+
+                    <div>
+                        <span class="section-label">
+                            COORDINADOR DE LOGÍSTICA · TMS · TRANSPORTISTA
+                        </span>
+
+                        <h2>
+                            Envíos por etapa
+                        </h2>
+                    </div>
+
+                    <div class="pipeline-actions">
+
+                        <span class="process-count">
+                            <span id="envios-count">18</span> envíos
+                        </span>
+
+                        <button class="btn-nueva" id="btnNuevoEnvio" type="button">
+                            + Nuevo envío
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <div class="pipeline-scroll">
+
+                    <div class="pipeline">
+
+                        <!-- ETAPA 1 -->
+                        <div class="pipeline-stage" data-stage="almacen">
+
+                            <div class="pipeline-stage-head">
+                                <h4>Listo en almacén</h4>
+                                <span class="pipeline-stage-count" id="count-almacen">3</span>
+                            </div>
+
+                            <div class="pipeline-card">
+                                <strong>AF-001260</strong>
+                                <span>Comercial Rocío E.I.R.L. · Cusco, Perú</span>
+
+                                <div class="pipeline-card-foot">
+                                    <span class="pipeline-amount">Courier</span>
+                                    <div class="pipeline-owner">TF</div>
+                                </div>
+                            </div>
+
+                        </div>
+
+
+                        <!-- ETAPA 2 -->
+                        <div class="pipeline-stage" data-stage="asignado">
+
+                            <div class="pipeline-stage-head">
+                                <h4>Unidad asignada / ruta optimizada</h4>
+                                <span class="pipeline-stage-count" id="count-asignado">2</span>
+                            </div>
+
+                            <div class="pipeline-card">
+                                <strong>AF-001259</strong>
+                                <span>Andes Trade S.A. · Santiago, Chile</span>
+
+                                <div class="pipeline-card-foot">
+                                    <span class="pipeline-amount">Terrestre</span>
+                                    <div class="pipeline-owner">RS</div>
+                                </div>
+                            </div>
+
+                        </div>
+
+
+                        <!-- ETAPA 3 -->
+                        <div class="pipeline-stage" data-stage="transito">
+
+                            <div class="pipeline-stage-head">
+                                <h4>En tránsito</h4>
+                                <span class="pipeline-stage-count" id="count-transito">7</span>
+                            </div>
+
+                            <div class="pipeline-card">
+                                <strong>AF-001255</strong>
+                                <span>Importaciones del Sur · Miami, EE.UU.</span>
+
+                                <div class="pipeline-card-foot">
+                                    <span class="pipeline-amount">Aéreo</span>
+                                    <div class="pipeline-owner">DH</div>
+                                </div>
+                            </div>
+
+                            <div class="pipeline-card">
+                                <strong>AF-001252</strong>
+                                <span>Global Logística · Madrid, España</span>
+
+                                <div class="pipeline-card-foot">
+                                    <span class="pipeline-amount">Aéreo</span>
+                                    <div class="pipeline-owner">LA</div>
+                                </div>
+                            </div>
+
+                        </div>
+
+
+                        <!-- ETAPA 4 -->
+                        <div class="pipeline-stage" data-stage="espera">
+
+                            <div class="pipeline-stage-head">
+                                <h4>En espera</h4>
+                                <span class="pipeline-stage-count" id="count-espera">2</span>
+                            </div>
+
+                            <div class="pipeline-card">
+                                <strong>AF-001254</strong>
+                                <span>Andes Trade S.A. · Santiago, Chile</span>
+
+                                <div class="pipeline-card-foot">
+                                    <span class="pipeline-amount">Terrestre</span>
+                                    <div class="pipeline-owner">RN</div>
+                                </div>
+                            </div>
+
+                        </div>
+
+
+                        <!-- ETAPA 5 -->
+                        <div class="pipeline-stage is-perdida" data-stage="incidencia">
+
+                            <div class="pipeline-stage-head">
+                                <h4>Con incidencia</h4>
+                                <span class="pipeline-stage-count" id="count-incidencia">1</span>
+                            </div>
+
+                            <div class="pipeline-card">
+                                <strong>AF-001253</strong>
+                                <span>Textiles del Pacífico · Bogotá, Colombia</span>
+
+                                <div class="pipeline-card-foot">
+                                    <span class="pipeline-amount">Courier</span>
+                                    <div class="pipeline-owner">FE</div>
+                                </div>
+                            </div>
+
+                        </div>
+
+
+                        <!-- ETAPA 6 -->
+                        <div class="pipeline-stage is-ganada" data-stage="entregado">
+
+                            <div class="pipeline-stage-head">
+                                <h4>Entregado</h4>
+                                <span class="pipeline-stage-count" id="count-entregado">8</span>
+                            </div>
+
+                            <div class="pipeline-card">
+                                <strong>AF-001256</strong>
+                                <span>Empresa Global SAC · Lima, Perú</span>
+
+                                <div class="pipeline-card-foot">
+                                    <span class="pipeline-amount">Marítimo</span>
+                                    <div class="pipeline-owner">MA</div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="section-header">
+
+                    <div>
+                        <span class="section-label">
+                            SEGUIMIENTO
+                        </span>
+
+                        <h2>
+                            Últimos envíos
+                        </h2>
+                    </div>
+
+                </div>
+
+                <div class="opps-table-wrapper">
+
+                    <table class="opps-table">
+
+                        <thead>
+                            <tr>
+                                <th>Envío</th>
+                                <th>Tipo</th>
+                                <th>Transportista</th>
+                                <th>Etapa</th>
+                                <th>Tracking ID</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="envios-tbody">
+
+                            <tr>
+                                <td class="opps-cliente">
+                                    <strong>Empresa Global SAC</strong>
+                                    <span>Lima, Perú</span>
+                                </td>
+                                <td>Marítimo</td>
+                                <td>Maersk</td>
+                                <td><span class="stage-badge is-ganada">Entregado</span></td>
+                                <td>ML123456789</td>
+                            </tr>
+
+                            <tr>
+                                <td class="opps-cliente">
+                                    <strong>Importaciones del Sur</strong>
+                                    <span>Miami, EE.UU.</span>
+                                </td>
+                                <td>Aéreo</td>
+                                <td>DHL</td>
+                                <td><span class="stage-badge is-negociacion">En tránsito</span></td>
+                                <td>DH987654321</td>
+                            </tr>
+
+                            <tr>
+                                <td class="opps-cliente">
+                                    <strong>Andes Trade S.A.</strong>
+                                    <span>Santiago, Chile</span>
+                                </td>
+                                <td>Terrestre</td>
+                                <td>Ransa</td>
+                                <td><span class="stage-badge">En espera</span></td>
+                                <td>RN456123789</td>
+                            </tr>
+
+                            <tr>
+                                <td class="opps-cliente">
+                                    <strong>Textiles del Pacífico</strong>
+                                    <span>Bogotá, Colombia</span>
+                                </td>
+                                <td>Courier</td>
+                                <td>FedEx</td>
+                                <td><span class="stage-badge is-perdida">Con incidencia</span></td>
+                                <td>FX321654987</td>
+                            </tr>
+
+                            <tr>
+                                <td class="opps-cliente">
+                                    <strong>Global Logística</strong>
+                                    <span>Madrid, España</span>
+                                </td>
+                                <td>Aéreo</td>
+                                <td>LATAM Cargo</td>
+                                <td><span class="stage-badge is-negociacion">En tránsito</span></td>
+                                <td>LA654987321</td>
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+
+                <div class="process-note">
+
+                    <div class="process-note-icon">
+                        ⑂
+                    </div>
+
+                    <p>
+                        Un punto de decisión mueve el envío al cierre del proceso:
+                        la <strong>entrega al cliente final</strong>. Si es exitosa,
+                        se solicita firma digital o prueba de entrega y el envío pasa
+                        a <strong>Entregado</strong> con comprobante; si no, se
+                        registra el motivo desde la app móvil y el envío queda como
+                        <strong>Con incidencia</strong> para su reprogramación.
+                    </p>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+    <div class="modal-overlay" id="modalOverlay">
+
+        <div class="modal">
+
+            <div class="modal-head">
+                <h3>Nuevo envío</h3>
+                <button type="button" class="modal-close" id="btnCerrarModal">✕</button>
+            </div>
+
+            <form id="formEnvio">
+
+                <div class="form-field">
+                    <label for="campoCliente">Cliente</label>
+                    <input type="text" id="campoCliente" name="cliente" placeholder="Ej. Empresa Global SAC" required>
+                </div>
+
+                <div class="form-field">
+                    <label for="campoDestino">Destino</label>
+                    <input type="text" id="campoDestino" name="destino" placeholder="Ej. Lima, Perú" required>
+                </div>
+
+                <div class="form-row">
+
+                    <div class="form-field">
+                        <label for="campoTipo">Tipo de envío</label>
+                        <select id="campoTipo" name="tipo" required>
+                            <option value="Marítimo">Marítimo</option>
+                            <option value="Aéreo">Aéreo</option>
+                            <option value="Terrestre">Terrestre</option>
+                            <option value="Courier">Courier</option>
+                        </select>
+                    </div>
+
+                    <div class="form-field">
+                        <label for="campoTransportista">Transportista</label>
+                        <input type="text" id="campoTransportista" name="transportista" placeholder="Ej. Maersk" required>
+                    </div>
+
+                </div>
+
+                <div class="form-field">
+                    <label for="campoEtapa">Etapa</label>
+                    <select id="campoEtapa" name="etapa" required>
+                        <option value="almacen">Listo en almacén</option>
+                        <option value="asignado">Unidad asignada / ruta optimizada</option>
+                        <option value="transito">En tránsito</option>
+                        <option value="espera">En espera</option>
+                        <option value="incidencia">Con incidencia</option>
+                        <option value="entregado">Entregado</option>
+                    </select>
+                </div>
+
+                <div class="modal-actions">
+                    <button type="button" class="btn-secundario" id="btnCancelarModal">Cancelar</button>
+                    <button type="submit" class="btn-nueva">Guardar envío</button>
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <script src="../js/layout.js"></script>
+    <script src="../js/utils.js"></script>
+    <script src="../js/modal.js"></script>
+    <script src="../js/modulos/logistica.js"></script>
+
+</body>
+</html>

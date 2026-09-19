@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Transflow | Dirección General</title>
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/layout.css">
+    <link rel="stylesheet" href="../css/componentes.css">
+    <link rel="stylesheet" href="../css/modulos/direccion.css">
+</head>
+<body>
+
+    <div class="app">
+        
+        <div id="layout-sidebar"></div>
+
+
+        <main class="main">
+
+            <!-- HEADER -->
+            <div id="layout-topbar"></div>
+
+
+            <section class="content">
+
+                <!-- BIENVENIDA -->
+                <div class="welcome">
+
+                    <div>
+
+                        <span class="welcome-label">
+                            RESUMEN EJECUTIVO
+                        </span>
+
+                        <h1>
+                            KPIs y seguimiento estratégico
+                        </h1>
+
+                        <p>
+                            Visión general del desempeño de la empresa y del
+                            avance de los proyectos e iniciativas estratégicas.
+                        </p>
+
+                    </div>
+
+                    <div class="welcome-decoration">
+                        TF
+                    </div>
+
+                </div>
+
+
+                <div class="summary summary-direccion">
+
+                    <div class="summary-card">
+
+                        <div class="summary-icon">
+                            01
+                        </div>
+
+                        <div>
+                            <span>Ingresos totales</span>
+                            <strong id="kpi-ingresos">S/ 1,248,750</strong>
+                        </div>
+
+                    </div>
+
+
+                    <div class="summary-card">
+
+                        <div class="summary-icon">
+                            02
+                        </div>
+
+                        <div>
+                            <span>Utilidad neta</span>
+                            <strong id="kpi-utilidad">S/ 286,340</strong>
+                        </div>
+
+                    </div>
+
+
+                    <div class="summary-card">
+
+                        <div class="summary-icon">
+                            03
+                        </div>
+
+                        <div>
+                            <span>Cumplimiento de presupuesto</span>
+                            <strong id="kpi-presupuesto">92%</strong>
+                        </div>
+
+                    </div>
+
+
+                    <div class="summary-card">
+
+                        <div class="summary-icon">
+                            04
+                        </div>
+
+                        <div>
+                            <span>Proyectos estratégicos</span>
+                            <strong id="kpi-proyectos">4</strong>
+                        </div>
+
+                    </div>
+
+
+                    <div class="summary-card">
+
+                        <div class="summary-icon">
+                            05
+                        </div>
+
+                        <div>
+                            <span>Tiempo de aprobación</span>
+                            <strong id="kpi-tiempo">2.8 días</strong>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="section-header">
+
+                    <div>
+                        <span class="section-label">
+                            PLAN ESTRATÉGICO
+                        </span>
+
+                        <h2>
+                            Iniciativas por estado
+                        </h2>
+                    </div>
+
+                    <div class="pipeline-actions">
+
+                        <span class="process-count">
+                            <span id="iniciativas-count">6</span> iniciativas
+                        </span>
+
+                        <button class="btn-nueva" id="btnNuevaIniciativa" type="button">
+                            + Nueva iniciativa
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <div class="pipeline-scroll">
+
+                    <div class="pipeline">
+
+                        <!-- ESTADO 1 -->
+                        <div class="pipeline-stage" data-stage="pendiente">
+
+                            <div class="pipeline-stage-head">
+                                <h4>Pendiente</h4>
+                                <span class="pipeline-stage-count" id="count-pendiente">1</span>
+                            </div>
+
+                            <div class="pipeline-card">
+                                <strong>Mejora de infraestructura</strong>
+                                <span>Gerente de Administración</span>
+
+                                <div class="pipeline-card-foot">
+                                    <span class="pipeline-amount">20%</span>
+                                    <div class="pipeline-owner">TF</div>
+                                </div>
+                            </div>
+
+                        </div>
+
+
+                        <!-- ESTADO 2 -->
+                        <div class="pipeline-stage" data-stage="proceso">
+
+                            <div class="pipeline-stage-head">
+                                <h4>En ejecución</h4>
+                                <span class="pipeline-stage-count" id="count-proceso">2</span>
+                            </div>
+
+                            <div class="pipeline-card">
+                                <strong>Optimización de procesos aduaneros</strong>
+                                <span>Gerente de Operaciones</span>
+
+                                <div class="pipeline-card-foot">
+                                    <span class="pipeline-amount">70%</span>
+                                    <div class="pipeline-owner">TF</div>
+                                </div>
+                            </div>
+
+                            <div class="pipeline-card">
+                                <strong>Expansión de cobertura regional</strong>
+                                <span>Gerente Comercial</span>
+
+                                <div class="pipeline-card-foot">
+                                    <span class="pipeline-amount">60%</span>
+                                    <div class="pipeline-owner">TF</div>
+                                </div>
+                            </div>
+
+                        </div>
+
+
+                        <!-- ESTADO 3 -->
+                        <div class="pipeline-stage is-programada" data-stage="revision">
+
+                            <div class="pipeline-stage-head">
+                                <h4>En revisión</h4>
+                                <span class="pipeline-stage-count" id="count-revision">1</span>
+                            </div>
+
+                            <div class="pipeline-card">
+                                <strong>Nueva línea de negocio</strong>
+                                <span>Gerente Comercial</span>
+
+                                <div class="pipeline-card-foot">
+                                    <span class="pipeline-amount">35%</span>
+                                    <div class="pipeline-owner">TF</div>
+                                </div>
+                            </div>
+
+                        </div>
+
+
+                        <!-- ESTADO 4 -->
+                        <div class="pipeline-stage is-ganada" data-stage="completada">
+
+                            <div class="pipeline-stage-head">
+                                <h4>Completada</h4>
+                                <span class="pipeline-stage-count" id="count-completada">3</span>
+                            </div>
+
+                            <div class="pipeline-card">
+                                <strong>Plan estratégico 2025</strong>
+                                <span>Comité Directivo</span>
+
+                                <div class="pipeline-card-foot">
+                                    <span class="pipeline-amount">100%</span>
+                                    <div class="pipeline-owner">TF</div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="section-header">
+
+                    <div>
+                        <span class="section-label">
+                            SEGUIMIENTO
+                        </span>
+
+                        <h2>
+                            Proyectos e iniciativas estratégicas
+                        </h2>
+                    </div>
+
+                </div>
+
+                <div class="opps-table-wrapper">
+
+                    <table class="opps-table">
+
+                        <thead>
+                            <tr>
+                                <th>Proyecto / iniciativa</th>
+                                <th>Responsable</th>
+                                <th>Estado</th>
+                                <th>Avance</th>
+                                <th>Fecha objetivo</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="iniciativas-tbody">
+
+                            <tr>
+                                <td>Optimización de procesos aduaneros</td>
+                                <td>Gerente de Operaciones</td>
+                                <td><span class="stage-badge is-negociacion">En ejecución</span></td>
+                                <td>
+                                    <div class="progress-wrap">
+                                        <div class="progress-track">
+                                            <div class="progress-fill" style="width: 70%;"></div>
+                                        </div>
+                                        <span class="progress-label">70%</span>
+                                    </div>
+                                </td>
+                                <td>30/04/2025</td>
+                            </tr>
+
+                            <tr>
+                                <td>Expansión de cobertura regional</td>
+                                <td>Gerente Comercial</td>
+                                <td><span class="stage-badge is-negociacion">En ejecución</span></td>
+                                <td>
+                                    <div class="progress-wrap">
+                                        <div class="progress-track">
+                                            <div class="progress-fill" style="width: 60%;"></div>
+                                        </div>
+                                        <span class="progress-label">60%</span>
+                                    </div>
+                                </td>
+                                <td>30/06/2025</td>
+                            </tr>
+
+                            <tr>
+                                <td>Implementación de ERP</td>
+                                <td>Gerente de TI</td>
+                                <td><span class="stage-badge is-negociacion">En ejecución</span></td>
+                                <td>
+                                    <div class="progress-wrap">
+                                        <div class="progress-track">
+                                            <div class="progress-fill" style="width: 45%;"></div>
+                                        </div>
+                                        <span class="progress-label">45%</span>
+                                    </div>
+                                </td>
+                                <td>31/07/2025</td>
+                            </tr>
+
+                            <tr>
+                                <td>Mejora de infraestructura</td>
+                                <td>Gerente de Administración</td>
+                                <td><span class="stage-badge">Pendiente</span></td>
+                                <td>
+                                    <div class="progress-wrap">
+                                        <div class="progress-track">
+                                            <div class="progress-fill" style="width: 20%;"></div>
+                                        </div>
+                                        <span class="progress-label">20%</span>
+                                    </div>
+                                </td>
+                                <td>31/08/2025</td>
+                            </tr>
+
+                            <tr>
+                                <td>Nueva línea de negocio</td>
+                                <td>Gerente Comercial</td>
+                                <td><span class="stage-badge is-programada">En revisión</span></td>
+                                <td>
+                                    <div class="progress-wrap">
+                                        <div class="progress-track">
+                                            <div class="progress-fill" style="width: 35%;"></div>
+                                        </div>
+                                        <span class="progress-label">35%</span>
+                                    </div>
+                                </td>
+                                <td>30/09/2025</td>
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+
+                <div class="process-note">
+
+                    <div class="process-note-icon">
+                        ⑂
+                    </div>
+
+                    <p>
+                        Toda iniciativa nace <strong>pendiente</strong>, pasa a
+                        <strong>en ejecución</strong> mientras el responsable la
+                        desarrolla, y puede pasar a <strong>en revisión</strong>
+                        si el Comité Directivo la evalúa antes de aprobarla, hasta
+                        quedar <strong>completada</strong> una vez cumplido su
+                        objetivo.
+                    </p>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+
+    <div class="modal-overlay" id="modalOverlay">
+
+        <div class="modal">
+
+            <div class="modal-head">
+                <h3>Nueva iniciativa</h3>
+                <button type="button" class="modal-close" id="btnCerrarModal">✕</button>
+            </div>
+
+            <form id="formIniciativa">
+
+                <div class="form-field">
+                    <label for="campoProyecto">Proyecto / iniciativa</label>
+                    <input type="text" id="campoProyecto" name="proyecto" placeholder="Ej. Optimización de procesos aduaneros" required>
+                </div>
+
+                <div class="form-field">
+                    <label for="campoResponsable">Responsable</label>
+                    <input type="text" id="campoResponsable" name="responsable" placeholder="Ej. Gerente de Operaciones" required>
+                </div>
+
+                <div class="form-row">
+
+                    <div class="form-field">
+                        <label for="campoAvance">Avance (%)</label>
+                        <input type="number" id="campoAvance" name="avance" min="0" max="100" step="5" value="0" required>
+                    </div>
+
+                    <div class="form-field">
+                        <label for="campoFecha">Fecha objetivo</label>
+                        <input type="date" id="campoFecha" name="fecha" required>
+                    </div>
+
+                </div>
+
+                <div class="form-field">
+                    <label for="campoEstado">Estado</label>
+                    <select id="campoEstado" name="estado" required>
+                        <option value="pendiente">Pendiente</option>
+                        <option value="proceso">En ejecución</option>
+                        <option value="revision">En revisión</option>
+                        <option value="completada">Completada</option>
+                    </select>
+                </div>
+
+                <div class="modal-actions">
+                    <button type="button" class="btn-secundario" id="btnCancelarModal">Cancelar</button>
+                    <button type="submit" class="btn-nueva">Guardar iniciativa</button>
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <script src="../js/layout.js"></script>
+    <script src="../js/utils.js"></script>
+    <script src="../js/modal.js"></script>
+    <script src="../js/modulos/direccion.js"></script>
+
+</body>
+</html>

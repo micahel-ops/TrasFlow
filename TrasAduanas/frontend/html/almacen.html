@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Transflow | Almacén</title>
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/layout.css">
+    <link rel="stylesheet" href="../css/componentes.css">
+    <link rel="stylesheet" href="../css/modulos/almacen.css">
+</head>
+<body>
+
+    <div class="app">
+
+        <div id="layout-sidebar"></div>
+
+
+        <main class="main">
+
+            <!-- HEADER -->
+            <div id="layout-topbar"></div>
+
+
+            <section class="content">
+
+                <!-- BIENVENIDA -->
+                <div class="welcome">
+
+                    <div>
+
+                        <span class="welcome-label">
+                            GESTIÓN DE ALMACÉN
+                        </span>
+
+                        <h1>
+                            Inventario, ubicaciones y movimientos
+                        </h1>
+
+                        <p>
+                            Seguimiento del stock disponible y de cada entrada,
+                            salida, picking, empaque o ajuste registrado.
+                        </p>
+
+                    </div>
+
+                    <div class="welcome-decoration">
+                        TF
+                    </div>
+
+                </div>
+
+
+                <div class="summary summary-almacen">
+
+                    <div class="summary-card">
+
+                        <div class="summary-icon">
+                            01
+                        </div>
+
+                        <div>
+                            <span>Total de productos</span>
+                            <strong id="kpi-total">2,480</strong>
+                        </div>
+
+                    </div>
+
+
+                    <div class="summary-card">
+
+                        <div class="summary-icon">
+                            02
+                        </div>
+
+                        <div>
+                            <span>Stock disponible</span>
+                            <strong id="kpi-disponible">1,982</strong>
+                        </div>
+
+                    </div>
+
+
+                    <div class="summary-card">
+
+                        <div class="summary-icon">
+                            03
+                        </div>
+
+                        <div>
+                            <span>Productos en alerta</span>
+                            <strong id="kpi-alerta">86</strong>
+                        </div>
+
+                    </div>
+
+
+                    <div class="summary-card">
+
+                        <div class="summary-icon">
+                            04
+                        </div>
+
+                        <div>
+                            <span>Ubicaciones activas</span>
+                            <strong id="kpi-ubicaciones">24</strong>
+                        </div>
+
+                    </div>
+
+
+                    <div class="summary-card">
+
+                        <div class="summary-icon">
+                            05
+                        </div>
+
+                        <div>
+                            <span>Tiempo promedio en picking</span>
+                            <strong id="kpi-picking">2.4 h</strong>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="section-header">
+
+                    <div>
+                        <span class="section-label">
+                            ESTADO DEL INVENTARIO
+                        </span>
+
+                        <h2>
+                            Lotes por estado
+                        </h2>
+                    </div>
+
+                    <div class="pipeline-actions">
+
+                        <span class="process-count">
+                            <span id="lotes-count">4</span> lotes destacados
+                        </span>
+
+                        <button class="btn-nueva" id="btnRegistrarMovimiento" type="button">
+                            + Registrar movimiento
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <div class="pipeline-scroll">
+
+                    <div class="pipeline">
+
+                        <!-- ESTADO 1 -->
+                        <div class="pipeline-stage is-ganada" data-stage="disponible">
+
+                            <div class="pipeline-stage-head">
+                                <h4>Disponible</h4>
+                                <span class="pipeline-stage-count" id="count-disponible">1,982</span>
+                            </div>
+
+                            <div class="pipeline-card">
+                                <strong>Laptop Pro 15"</strong>
+                                <span>LP-001245 · A-03-01</span>
+
+                                <div class="pipeline-card-foot">
+                                    <span class="pipeline-amount">10 uds.</span>
+                                    <div class="pipeline-owner">AT</div>
+                                </div>
+                            </div>
+
+                        </div>
+
+
+                        <!-- ESTADO 2 -->
+                        <div class="pipeline-stage" data-stage="transito">
+
+                            <div class="pipeline-stage-head">
+                                <h4>En tránsito</h4>
+                                <span class="pipeline-stage-count" id="count-transito">312</span>
+                            </div>
+
+                            <div class="pipeline-card">
+                                <strong>Mouse Inalámbrico</strong>
+                                <span>MI-000876 · B-02-05</span>
+
+                                <div class="pipeline-card-foot">
+                                    <span class="pipeline-amount">25 uds.</span>
+                                    <div class="pipeline-owner">CR</div>
+                                </div>
+                            </div>
+
+                        </div>
+
+
+                        <!-- ESTADO 3 -->
+                        <div class="pipeline-stage is-perdida" data-stage="cuarentena">
+
+                            <div class="pipeline-stage-head">
+                                <h4>En cuarentena</h4>
+                                <span class="pipeline-stage-count" id="count-cuarentena">98</span>
+                            </div>
+
+                            <div class="pipeline-card">
+                                <strong>Teclado Mecánico</strong>
+                                <span>TM-003421 · C-01-03</span>
+
+                                <div class="pipeline-card-foot">
+                                    <span class="pipeline-amount">15 uds.</span>
+                                    <div class="pipeline-owner">LP</div>
+                                </div>
+                            </div>
+
+                        </div>
+
+
+                        <!-- ESTADO 4 -->
+                        <div class="pipeline-stage" data-stage="danado">
+
+                            <div class="pipeline-stage-head">
+                                <h4>Dañado</h4>
+                                <span class="pipeline-stage-count" id="count-danado">88</span>
+                            </div>
+
+                            <div class="pipeline-card">
+                                <strong>Cargador Portátil</strong>
+                                <span>CP-002311 · B-03-02</span>
+
+                                <div class="pipeline-card-foot">
+                                    <span class="pipeline-amount">8 uds.</span>
+                                    <div class="pipeline-owner">AT</div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="section-header">
+
+                    <div>
+                        <span class="section-label">
+                            TRAZABILIDAD
+                        </span>
+
+                        <h2>
+                            Movimientos recientes de almacén
+                        </h2>
+                    </div>
+
+                </div>
+
+                <div class="opps-table-wrapper">
+
+                    <table class="opps-table">
+
+                        <thead>
+                            <tr>
+                                <th>Fecha / hora</th>
+                                <th>Tipo</th>
+                                <th>Producto</th>
+                                <th>Código / lote</th>
+                                <th>Ubicación</th>
+                                <th>Cantidad</th>
+                                <th>Usuario</th>
+                                <th>Estado</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="movimientos-tbody">
+
+                            <tr>
+                                <td>30/04/2025 14:32</td>
+                                <td><span class="stage-badge is-entrada">Entrada</span></td>
+                                <td>Laptop Pro 15"</td>
+                                <td>LP-001245</td>
+                                <td>A-03-01</td>
+                                <td>10</td>
+                                <td>Ana Torres</td>
+                                <td><span class="stage-badge is-ganada">Completado</span></td>
+                            </tr>
+
+                            <tr>
+                                <td>30/04/2025 11:20</td>
+                                <td><span class="stage-badge is-salida">Salida</span></td>
+                                <td>Mouse Inalámbrico</td>
+                                <td>MI-000876</td>
+                                <td>B-02-05</td>
+                                <td>25</td>
+                                <td>Carlos Ruiz</td>
+                                <td><span class="stage-badge is-ganada">Completado</span></td>
+                            </tr>
+
+                            <tr>
+                                <td>29/04/2025 16:45</td>
+                                <td><span class="stage-badge">Picking</span></td>
+                                <td>Teclado Mecánico</td>
+                                <td>TM-003421</td>
+                                <td>C-01-03</td>
+                                <td>15</td>
+                                <td>Luis Pérez</td>
+                                <td><span class="stage-badge is-ganada">Completado</span></td>
+                            </tr>
+
+                            <tr>
+                                <td>29/04/2025 12:10</td>
+                                <td><span class="stage-badge">Empaque</span></td>
+                                <td>Auriculares Bluetooth</td>
+                                <td>AB-007654</td>
+                                <td>D-02-07</td>
+                                <td>12</td>
+                                <td>María López</td>
+                                <td><span class="stage-badge is-ganada">Completado</span></td>
+                            </tr>
+
+                            <tr>
+                                <td>28/04/2025 10:05</td>
+                                <td><span class="stage-badge">Ajuste</span></td>
+                                <td>Memoria USB 128GB</td>
+                                <td>MU-009876</td>
+                                <td>A-01-04</td>
+                                <td>5</td>
+                                <td>José Ramírez</td>
+                                <td><span class="stage-badge is-ganada">Completado</span></td>
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+
+                <div class="process-note">
+
+                    <div class="process-note-icon">
+                        ⑂
+                    </div>
+
+                    <p>
+                        Cada lote pasa por uno de cuatro estados: <strong>disponible</strong>
+                        para despacho inmediato, <strong>en tránsito</strong> entre
+                        ubicaciones del almacén, <strong>en cuarentena</strong> pendiente
+                        de verificación, o <strong>dañado</strong> y retirado del stock
+                        disponible. Cada movimiento (entrada, salida, picking, empaque
+                        o ajuste) queda registrado con fecha, ubicación y usuario.
+                    </p>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+
+    <div class="modal-overlay" id="modalOverlay">
+
+        <div class="modal">
+
+            <div class="modal-head">
+                <h3>Registrar movimiento</h3>
+                <button type="button" class="modal-close" id="btnCerrarModal">✕</button>
+            </div>
+
+            <form id="formMovimiento">
+
+                <div class="form-row">
+
+                    <div class="form-field">
+                        <label for="campoTipo">Tipo de movimiento</label>
+                        <select id="campoTipo" name="tipo" required>
+                            <option value="entrada">Entrada</option>
+                            <option value="salida">Salida</option>
+                            <option value="picking">Picking</option>
+                            <option value="empaque">Empaque</option>
+                            <option value="ajuste">Ajuste</option>
+                        </select>
+                    </div>
+
+                    <div class="form-field">
+                        <label for="campoCantidad">Cantidad</label>
+                        <input type="number" id="campoCantidad" name="cantidad" min="1" step="1" placeholder="0" required>
+                    </div>
+
+                </div>
+
+                <div class="form-field">
+                    <label for="campoProducto">Producto</label>
+                    <input type="text" id="campoProducto" name="producto" placeholder="Ej. Laptop Pro 15&quot;" required>
+                </div>
+
+                <div class="form-row">
+
+                    <div class="form-field">
+                        <label for="campoCodigo">Código / lote</label>
+                        <input type="text" id="campoCodigo" name="codigo" placeholder="Ej. LP-001245" required>
+                    </div>
+
+                    <div class="form-field">
+                        <label for="campoUbicacion">Ubicación</label>
+                        <input type="text" id="campoUbicacion" name="ubicacion" placeholder="Ej. A-03-01" required>
+                    </div>
+
+                </div>
+
+                <div class="form-field">
+                    <label for="campoUsuario">Usuario</label>
+                    <input type="text" id="campoUsuario" name="usuario" placeholder="Ej. Ana Torres" required>
+                </div>
+
+                <div class="modal-actions">
+                    <button type="button" class="btn-secundario" id="btnCancelarModal">Cancelar</button>
+                    <button type="submit" class="btn-nueva">Guardar movimiento</button>
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+ 
+    
+
+
+    <script src="../js/layout.js"></script>
+    <script src="../js/utils.js"></script>
+    <script src="../js/modal.js"></script>
+    <script src="../js/modulos/almacen.js"></script>
+
+</body>
+</html>

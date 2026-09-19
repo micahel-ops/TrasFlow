@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Transflow | Marketing</title>
+
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/layout.css">
+    <link rel="stylesheet" href="../css/componentes.css">
+    <link rel="stylesheet" href="../css/modulos/marketing.css">
+</head>
+
+<body>
+
+    <div class="app">
+
+        <div id="layout-sidebar"></div>
+
+
+        <main class="main">
+
+            <!-- HEADER -->
+            <div id="layout-topbar" data-clase="dash-topbar" data-buscador="Buscar campañas, leads o clientes..." data-buscador-id="buscadorCampanas"></div>
+
+            <section class="content">
+
+                <!-- ENCABEZADO DE PÁGINA -->
+                <div class="page-header-row">
+
+                    <div>
+                        <h1>Campañas de Marketing</h1>
+                        <p>Gestiona y monitorea todas tus campañas digitales en un solo lugar.</p>
+                    </div>
+
+                    <button class="btn-primary" id="btnNuevaCampana">
+                        <span>+</span>
+                        Nueva campaña
+                    </button>
+
+                </div>
+
+
+                <div class="stat-grid">
+
+                    <div class="stat-card">
+                        <div class="stat-card-head">
+                            <div class="stat-icon">📣</div>
+                            <span>Campañas activas</span>
+                        </div>
+                        <strong id="statActivas">0</strong>
+                        <span class="stat-trend" id="statActivasTrend"></span>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-card-head">
+                            <div class="stat-icon">👥</div>
+                            <span>Total de leads</span>
+                        </div>
+                        <strong id="statLeads">0</strong>
+                        <span class="stat-trend" id="statLeadsTrend"></span>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-card-head">
+                            <div class="stat-icon">👤</div>
+                            <span>Leads calificados</span>
+                        </div>
+                        <strong id="statCalificados">0</strong>
+                        <span class="stat-trend" id="statCalificadosTrend"></span>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-card-head">
+                            <div class="stat-icon">◎</div>
+                            <span>Tasa de conversión</span>
+                        </div>
+                        <strong id="statConversion">0%</strong>
+                        <span class="stat-trend" id="statConversionTrend"></span>
+                    </div>
+
+                </div>
+
+
+                <div class="dashboard-grid">
+
+                    <!-- PANEL DE CAMPAÑAS -->
+                    <div class="campaigns-panel">
+
+                        <div class="panel-header">
+
+                            <h2>Campañas</h2>
+
+                            <div class="panel-filters">
+                                <select class="filter-pill" id="filtroEstado">
+                                    <option value="todas">Todas las campañas</option>
+                                    <option value="activa">Solo activas</option>
+                                    <option value="pausada">Solo pausadas</option>
+                                    <option value="finalizada">Solo finalizadas</option>
+                                </select>
+                                <span class="filter-pill">📅 01 abr 2025 – 30 abr 2025</span>
+                            </div>
+
+                        </div>
+
+                        <table class="campaigns-table">
+
+                            <thead>
+                                <tr>
+                                    <th>Nombre de la campaña</th>
+                                    <th>Canal</th>
+                                    <th>Fecha de inicio</th>
+                                    <th>Fecha de fin</th>
+                                    <th>Leads</th>
+                                    <th>Calificados</th>
+                                    <th>Estado</th>
+                                    <th>Propietario</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+
+                            <tbody id="tablaCampanasBody">
+                                <!-- Filas generadas por js/marketing.js -->
+                            </tbody>
+
+                        </table>
+
+                        <div class="table-footer">
+                            <span id="paginacionInfo">Mostrando 0 de 0 campañas</span>
+                            <div class="pagination" id="paginacionBotones"></div>
+                        </div>
+
+                    </div>
+
+
+                    <!-- PANELES LATERALES -->
+                    <div class="side-panels">
+
+                        <!-- RENDIMIENTO -->
+                        <div class="chart-panel">
+
+                            <div class="panel-header-sm">
+                                <h2>Rendimiento de campañas</h2>
+                                <span class="filter-pill">Por campaña ⌄</span>
+                            </div>
+
+                            <div class="chart-legend">
+                                <span><span class="dot leads"></span>Leads</span>
+                                <span><span class="dot calificados"></span>Calificados</span>
+                            </div>
+
+                            <svg class="line-chart" viewBox="0 0 320 160" xmlns="http://www.w3.org/2000/svg">
+
+                                <line x1="10" y1="130" x2="310" y2="130" stroke="#DDD5C8" stroke-width="1"/>
+
+                                <polyline id="lineaLeads" points=""
+                                    fill="none" stroke="#A9824D" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+
+                                <polyline id="lineaCalificados" points=""
+                                    fill="none" stroke="#6B7568" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+
+                                <g id="etiquetasEjeX"></g>
+
+                            </svg>
+
+                        </div>
+
+
+                        <!-- ESTADO -->
+                        <div class="chart-panel">
+
+                            <div class="panel-header-sm">
+                                <h2>Estado de campañas</h2>
+                            </div>
+
+                            <div class="donut-wrap">
+
+                                <svg width="110" height="110" viewBox="0 0 42 42">
+
+                                    <circle cx="21" cy="21" r="15.9" fill="transparent" stroke="#DDD5C8" stroke-width="6"/>
+
+                                    <circle id="donutActivas" cx="21" cy="21" r="15.9" fill="transparent"
+                                        stroke="#6B7568" stroke-width="6"
+                                        stroke-dasharray="0 100" stroke-dashoffset="25" stroke-linecap="round"/>
+
+                                    <circle id="donutPausadas" cx="21" cy="21" r="15.9" fill="transparent"
+                                        stroke="#A9824D" stroke-width="6"
+                                        stroke-dasharray="0 100" stroke-dashoffset="25" stroke-linecap="round"/>
+
+                                    <g text-anchor="middle" font-family="Arial, Helvetica, sans-serif">
+                                        <text id="donutTotal" x="21" y="20" font-size="7" font-weight="700" fill="#3E352C">0</text>
+                                        <text x="21" y="27" font-size="3.6" fill="#756D63">campañas</text>
+                                    </g>
+
+                                </svg>
+
+                                <div class="donut-legend">
+
+                                    <div class="donut-legend-item">
+                                        <span class="left"><span class="dot activas"></span>Activas</span>
+                                        <span class="value" id="donutActivasValor">0 (0%)</span>
+                                    </div>
+
+                                    <div class="donut-legend-item">
+                                        <span class="left"><span class="dot pausadas"></span>Pausadas</span>
+                                        <span class="value" id="donutPausadasValor">0 (0%)</span>
+                                    </div>
+
+                                    <div class="donut-legend-item">
+                                        <span class="left"><span class="dot finalizadas"></span>Finalizadas</span>
+                                        <span class="value" id="donutFinalizadasValor">0 (0%)</span>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- ACTIVIDAD -->
+                        <div class="activity-panel">
+
+                            <div class="panel-header-sm">
+                                <h2>Últimas actividades</h2>
+                                <a href="#">Ver todas</a>
+                            </div>
+
+                            <ul class="activity-list" id="listaActividades">
+                                <!-- Generado por js/marketing.js -->
+                            </ul>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+
+    <div class="modal-overlay" id="modalOverlay">
+
+        <div class="modal-box">
+
+            <div class="modal-header">
+                <div>
+                    <h2>Nueva campaña</h2>
+                    <p>Se agregará a la tabla y a las gráficas al instante.</p>
+                </div>
+                <button class="modal-close" id="modalClose">✕</button>
+            </div>
+
+            <form id="formCampana">
+
+                <div class="form-grid">
+
+                    <div class="form-field full">
+                        <label for="campoNombre">Nombre de la campaña</label>
+                        <input type="text" id="campoNombre" required placeholder="Ej. Promoción Verano LATAM">
+                    </div>
+
+                    <div class="form-field">
+                        <label for="campoCanal">Canal</label>
+                        <select id="campoCanal">
+                            <option value="Google Ads">Google Ads</option>
+                            <option value="LinkedIn">LinkedIn</option>
+                            <option value="Email">Email</option>
+                            <option value="Facebook Ads">Facebook Ads</option>
+                            <option value="Landing Page">Landing Page</option>
+                            <option value="Instagram">Instagram</option>
+                            <option value="Otro">Otro</option>
+                        </select>
+                    </div>
+
+                    <div class="form-field">
+                        <label for="campoEstado">Estado</label>
+                        <select id="campoEstado">
+                            <option value="activa">Activa</option>
+                            <option value="pausada">Pausada</option>
+                            <option value="finalizada">Finalizada</option>
+                        </select>
+                    </div>
+
+                    <div class="form-field">
+                        <label for="campoFechaInicio">Fecha de inicio</label>
+                        <input type="date" id="campoFechaInicio" required>
+                    </div>
+
+                    <div class="form-field">
+                        <label for="campoFechaFin">Fecha de fin</label>
+                        <input type="date" id="campoFechaFin" required>
+                    </div>
+
+                    <div class="form-field">
+                        <label for="campoLeads">Leads</label>
+                        <input type="number" id="campoLeads" min="0" required placeholder="0">
+                    </div>
+
+                    <div class="form-field">
+                        <label for="campoCalificados">Leads calificados</label>
+                        <input type="number" id="campoCalificados" min="0" required placeholder="0">
+                        <span class="form-hint" id="hintCalificados"></span>
+                    </div>
+
+                    <div class="form-field full">
+                        <label for="campoPropietario">Propietario</label>
+                        <input type="text" id="campoPropietario" required placeholder="Nombre del responsable">
+                    </div>
+
+                </div>
+
+                <div class="form-actions">
+                    <button type="button" class="btn-secondary" id="modalCancelar">Cancelar</button>
+                    <button type="submit" class="btn-primary">Guardar campaña</button>
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <script src="../js/layout.js"></script>
+    <script src="../js/utils.js"></script>
+    <script src="../js/modal.js"></script>
+    <script src="../js/modulos/marketing.js"></script>
+
+</body>
+</html>

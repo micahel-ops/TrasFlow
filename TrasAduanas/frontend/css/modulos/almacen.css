@@ -1,0 +1,59 @@
+/* =========================================================
+   MODULO: ALMACEN
+   Solo lo exclusivo de esta pantalla.
+   Lo comun vive en base.css, layout.css y componentes.css.
+   ========================================================= */
+
+/* =========================================
+   RESUMEN DE 5 TARJETAS (KPIs de almacén)
+========================================= */
+
+.summary-almacen {
+    grid-template-columns: repeat(5, 1fr);
+}
+
+@media (max-width: 1100px) {
+
+    .summary-almacen {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+@media (max-width: 600px) {
+
+    .summary-almacen {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+/* =========================================
+   BADGES DE TIPO DE MOVIMIENTO
+========================================= */
+
+.stage-badge.is-entrada {
+    background: var(--color-ganada-suave);
+    color: var(--color-ganada);
+}
+
+.stage-badge.is-salida {
+    background: rgba(169, 130, 77, 0.14);
+    color: var(--color-ambar-oscuro);
+}
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 800px) {
+
+    .opps-table {
+        min-width: 920px;
+    }
+
+    .opps-table-wrapper {
+        overflow-x: auto;
+    }
+
+}

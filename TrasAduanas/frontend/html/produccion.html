@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Transflow | Producción</title>
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/layout.css">
+    <link rel="stylesheet" href="../css/componentes.css">
+    <link rel="stylesheet" href="../css/modulos/produccion.css">
+</head>
+<body>
+
+    <div class="app">
+
+        <div id="layout-sidebar"></div>
+
+
+        <main class="main">
+
+            <!-- HEADER -->
+            <div id="layout-topbar"></div>
+
+
+            <section class="content">
+
+                <!-- BIENVENIDA -->
+                <div class="welcome">
+
+                    <div>
+
+                        <span class="welcome-label">
+                            GESTIÓN DE PRODUCCIÓN
+                        </span>
+
+                        <h1>
+                            Órdenes, lotes y control de calidad
+                        </h1>
+
+                        <p>
+                            Seguimiento de cada orden de producción desde que
+                            se crea hasta que queda completada o rechazada.
+                        </p>
+
+                    </div>
+
+                    <div class="welcome-decoration">
+                        TF
+                    </div>
+
+                </div>
+
+                <div class="summary summary-produccion">
+
+                    <div class="summary-card">
+
+                        <div class="summary-icon">
+                            01
+                        </div>
+
+                        <div>
+                            <span>Total de órdenes</span>
+                            <strong id="kpi-total">56</strong>
+                        </div>
+
+                    </div>
+
+
+                    <div class="summary-card">
+
+                        <div class="summary-icon">
+                            02
+                        </div>
+
+                        <div>
+                            <span>En proceso</span>
+                            <strong id="kpi-proceso">22</strong>
+                        </div>
+
+                    </div>
+
+
+                    <div class="summary-card">
+
+                        <div class="summary-icon">
+                            03
+                        </div>
+
+                        <div>
+                            <span>Completadas</span>
+                            <strong id="kpi-completada">28</strong>
+                        </div>
+
+                    </div>
+
+
+                    <div class="summary-card">
+
+                        <div class="summary-icon">
+                            04
+                        </div>
+
+                        <div>
+                            <span>Rechazadas</span>
+                            <strong id="kpi-rechazada">6</strong>
+                        </div>
+
+                    </div>
+
+
+                    <div class="summary-card">
+
+                        <div class="summary-icon">
+                            05
+                        </div>
+
+                        <div>
+                            <span>Tiempo promedio de producción</span>
+                            <strong id="kpi-tiempo">3.5 días</strong>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="section-header">
+
+                    <div>
+                        <span class="section-label">
+                            PLANTA · CONTROL DE CALIDAD
+                        </span>
+
+                        <h2>
+                            Órdenes por etapa
+                        </h2>
+                    </div>
+
+                    <div class="pipeline-actions">
+
+                        <span class="process-count">
+                            <span id="ordenes-count">56</span> órdenes
+                        </span>
+
+                        <button class="btn-nueva" id="btnNuevaOrden" type="button">
+                            + Nueva orden de producción
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <div class="pipeline-scroll">
+
+                    <div class="pipeline">
+
+                        <!-- ETAPA 1 -->
+                        <div class="pipeline-stage" data-stage="pendiente">
+
+                            <div class="pipeline-stage-head">
+                                <h4>Pendiente de inicio</h4>
+                                <span class="pipeline-stage-count" id="count-pendiente">0</span>
+                            </div>
+
+                        </div>
+
+
+                        <!-- ETAPA 2 -->
+                        <div class="pipeline-stage" data-stage="proceso">
+
+                            <div class="pipeline-stage-head">
+                                <h4>En proceso</h4>
+                                <span class="pipeline-stage-count" id="count-proceso">22</span>
+                            </div>
+
+                            <div class="pipeline-card">
+                                <strong>OP-000145</strong>
+                                <span>Soporte Metálico · LOTE-0425-01</span>
+
+                                <div class="pipeline-card-foot">
+                                    <span class="pipeline-amount">1,200 uds.</span>
+                                    <div class="pipeline-owner">JG</div>
+                                </div>
+                            </div>
+
+                            <div class="pipeline-card">
+                                <strong>OP-000140</strong>
+                                <span>Eje de Transmisión · LOTE-0425-06</span>
+
+                                <div class="pipeline-card-foot">
+                                    <span class="pipeline-amount">750 uds.</span>
+                                    <div class="pipeline-owner">JG</div>
+                                </div>
+                            </div>
+
+                        </div>
+
+
+                        <!-- ETAPA 3 -->
+                        <div class="pipeline-stage is-ganada" data-stage="completada">
+
+                            <div class="pipeline-stage-head">
+                                <h4>Completada</h4>
+                                <span class="pipeline-stage-count" id="count-completada">28</span>
+                            </div>
+
+                            <div class="pipeline-card">
+                                <strong>OP-000144</strong>
+                                <span>Ensamblaje Final · LOTE-0425-02</span>
+
+                                <div class="pipeline-card-foot">
+                                    <span class="pipeline-amount">800 uds.</span>
+                                    <div class="pipeline-owner">JG</div>
+                                </div>
+                            </div>
+
+                            <div class="pipeline-card">
+                                <strong>OP-000143</strong>
+                                <span>Eje de Transmisión · LOTE-0425-03</span>
+
+                                <div class="pipeline-card-foot">
+                                    <span class="pipeline-amount">500 uds.</span>
+                                    <div class="pipeline-owner">JG</div>
+                                </div>
+                            </div>
+
+                        </div>
+
+
+                        <!-- ETAPA 4 -->
+                        <div class="pipeline-stage is-perdida" data-stage="rechazada">
+
+                            <div class="pipeline-stage-head">
+                                <h4>Rechazada</h4>
+                                <span class="pipeline-stage-count" id="count-rechazada">6</span>
+                            </div>
+
+                            <div class="pipeline-card">
+                                <strong>OP-000142</strong>
+                                <span>Caja de Engranajes · LOTE-0425-04</span>
+
+                                <div class="pipeline-card-foot">
+                                    <span class="pipeline-amount">300 uds.</span>
+                                    <div class="pipeline-owner">JG</div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="section-header">
+
+                    <div>
+                        <span class="section-label">
+                            TRAZABILIDAD
+                        </span>
+
+                        <h2>
+                            Órdenes de producción
+                        </h2>
+                    </div>
+
+                </div>
+
+                <div class="opps-table-wrapper">
+
+                    <table class="opps-table">
+
+                        <thead>
+                            <tr>
+                                <th>N° Orden</th>
+                                <th>Producto</th>
+                                <th>Lote</th>
+                                <th>Cantidad</th>
+                                <th>Fecha de inicio</th>
+                                <th>Fecha de fin</th>
+                                <th>Estado</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="ordenes-tbody">
+
+                            <tr>
+                                <td>OP-000145</td>
+                                <td>Soporte Metálico</td>
+                                <td>LOTE-0425-01</td>
+                                <td>1,200</td>
+                                <td>12/04/2025</td>
+                                <td>14/04/2025</td>
+                                <td><span class="stage-badge is-negociacion">En proceso</span></td>
+                            </tr>
+
+                            <tr>
+                                <td>OP-000144</td>
+                                <td>Ensamblaje Final</td>
+                                <td>LOTE-0425-02</td>
+                                <td>800</td>
+                                <td>10/04/2025</td>
+                                <td>12/04/2025</td>
+                                <td><span class="stage-badge is-ganada">Completada</span></td>
+                            </tr>
+
+                            <tr>
+                                <td>OP-000143</td>
+                                <td>Eje de Transmisión</td>
+                                <td>LOTE-0425-03</td>
+                                <td>500</td>
+                                <td>08/04/2025</td>
+                                <td>11/04/2025</td>
+                                <td><span class="stage-badge is-ganada">Completada</span></td>
+                            </tr>
+
+                            <tr>
+                                <td>OP-000142</td>
+                                <td>Caja de Engranajes</td>
+                                <td>LOTE-0425-04</td>
+                                <td>300</td>
+                                <td>07/04/2025</td>
+                                <td>10/04/2025</td>
+                                <td><span class="stage-badge is-perdida">Rechazada</span></td>
+                            </tr>
+
+                            <tr>
+                                <td>OP-000141</td>
+                                <td>Soporte Metálico</td>
+                                <td>LOTE-0425-05</td>
+                                <td>1,000</td>
+                                <td>05/04/2025</td>
+                                <td>08/04/2025</td>
+                                <td><span class="stage-badge is-ganada">Completada</span></td>
+                            </tr>
+
+                            <tr>
+                                <td>OP-000140</td>
+                                <td>Eje de Transmisión</td>
+                                <td>LOTE-0425-06</td>
+                                <td>750</td>
+                                <td>03/04/2025</td>
+                                <td>06/04/2025</td>
+                                <td><span class="stage-badge is-negociacion">En proceso</span></td>
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+                <div class="process-note">
+
+                    <div class="process-note-icon">
+                        ⑂
+                    </div>
+
+                    <p>
+                        Toda orden nace <strong>pendiente de inicio</strong>, pasa a
+                        <strong>en proceso</strong> mientras se fabrica el lote, y en
+                        control de calidad se decide su cierre: <strong>completada</strong>
+                        si cumple los criterios, o <strong>rechazada</strong> si no los
+                        cumple y debe reprocesarse o descartarse.
+                    </p>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+    <div class="modal-overlay" id="modalOverlay">
+
+        <div class="modal">
+
+            <div class="modal-head">
+                <h3>Nueva orden de producción</h3>
+                <button type="button" class="modal-close" id="btnCerrarModal">✕</button>
+            </div>
+
+            <form id="formOrden">
+
+                <div class="form-field">
+                    <label for="campoProducto">Producto</label>
+                    <input type="text" id="campoProducto" name="producto" placeholder="Ej. Soporte Metálico" required>
+                </div>
+
+                <div class="form-row">
+
+                    <div class="form-field">
+                        <label for="campoLote">Lote</label>
+                        <input type="text" id="campoLote" name="lote" placeholder="Ej. LOTE-0425-07" required>
+                    </div>
+
+                    <div class="form-field">
+                        <label for="campoCantidad">Cantidad</label>
+                        <input type="number" id="campoCantidad" name="cantidad" min="1" step="1" placeholder="0" required>
+                    </div>
+
+                </div>
+
+                <div class="form-row">
+
+                    <div class="form-field">
+                        <label for="campoInicio">Fecha de inicio</label>
+                        <input type="date" id="campoInicio" name="inicio" required>
+                    </div>
+
+                    <div class="form-field">
+                        <label for="campoFin">Fecha de fin estimada</label>
+                        <input type="date" id="campoFin" name="fin" required>
+                    </div>
+
+                </div>
+
+                <div class="form-field">
+                    <label for="campoEtapa">Etapa</label>
+                    <select id="campoEtapa" name="etapa" required>
+                        <option value="pendiente">Pendiente de inicio</option>
+                        <option value="proceso" selected>En proceso</option>
+                        <option value="completada">Completada</option>
+                        <option value="rechazada">Rechazada</option>
+                    </select>
+                </div>
+
+                <div class="modal-actions">
+                    <button type="button" class="btn-secundario" id="btnCancelarModal">Cancelar</button>
+                    <button type="submit" class="btn-nueva">Guardar orden</button>
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <script src="../js/layout.js"></script>
+    <script src="../js/utils.js"></script>
+    <script src="../js/modal.js"></script>
+    <script src="../js/modulos/produccion.js"></script>
+
+</body>
+</html>
